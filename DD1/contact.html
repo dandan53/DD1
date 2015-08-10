@@ -1,0 +1,30 @@
+﻿ <style>
+    div.ridge {border-style: ridge;}
+ </style>
+
+<div class="ridge" ng-contoller="MainCtrl">
+    <h2> Contact Us 05212345679 </h2>
+    
+    <br/>
+    <br/>
+    
+    <label> Name </label>
+    <br/>
+    <input type="text" ng-model="form.name"/>
+    <br/>
+    <label> Phone </label>
+    <br/>
+    <input type="text" ng-model="form.phone"/>
+    <br/>
+    <label> email </label>
+    <br/>
+    <input type="text" ng-model="form.mail"/>
+    <br/>
+    <label> Contact </label>
+    <br/>
+    <input type="text" ng-model="form.content"/>
+    <br/>
+    <br/>
+    <button ng-click="send()">Send</button>
+    <br/>
+</div>
