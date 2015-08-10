@@ -11,6 +11,8 @@ namespace DD1
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.IgnoreRoute("");
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
