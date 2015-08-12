@@ -16,7 +16,7 @@ var MainCtrl = function ($scope, $location, contactService) {
 
     $scope.send = function() {
      //   alert($scope.form.name);
-        sendMsg();
+        $scope.sendMsg();
     };
     
 
@@ -42,7 +42,7 @@ var MainCtrl = function ($scope, $location, contactService) {
     };
 
 
-    $scope.sendMsg();
+   // $scope.sendMsg();
 };
 
 
