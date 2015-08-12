@@ -8,7 +8,7 @@
 
             /* cellpadding  */
             td.cellspacing { padding: 25px; }
-
+            
         </style>
         
         <title>D Design</title>
@@ -22,10 +22,10 @@
                         <td width="40%">
                             <h1>hello design</h1>
                         </td>
-                        <td width="20%">
+                        <td width="10%">
 
                         </td>
-                        <td width="40%">
+                        <td width="50%">
                              <h2>052-123456789</h2>
                         </td>
                     </tr>
@@ -36,11 +36,11 @@
 
     <body>
    
-        <table width="100%">
+        <table style="width:100%; height:100%">
                     <tr>
-                        <td width="60%" ng-include="'main_area.html'" />
-                        <td width="10%" />
-                        <td width="30%" ng-include="'contact.html'" />
+                        <td style="width:68%; height:inherit" data-ng-include="'main_area.html'" />
+                        <td style="width:2%; height:inherit" />
+                        <td style="position:absolute;" data-ng-include="'contact.html'" /> <!-- style="width:30%; height:inherit" -->
                     </tr>
         </table>
     

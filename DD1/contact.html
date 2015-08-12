@@ -1,30 +1,70 @@
 ﻿ <style>
-    div.ridge {border-style: ridge;}
+    div.ridge {border-style: ridge;
+                 margin-right: 20px;
+           
+    }
+
+     button.marg {
+                    
+                    margin-bottom: 35px;
+                    margin-right: 20px;
+                    
+                   }
+     div.marg {
+                    
+                    margin-right: 20px;
+                    margin-left: 20px;
+                    }
+
+     input.marg {
+         width: 100%;
+     }
+
+     h2.marg {
+                    margin-top: 35px; 
+                    margin-right: 20px;
+                    margin-left: 20px;
+                    }
+
  </style>
 
-<div class="ridge" ng-contoller="MainCtrl">
-    <h2> Contact Us 05212345679 </h2>
+<div class="ridge" data-ng-contoller="MainCtrl">
+    <h2 class="marg"> Contact Us 052123456 </h2>
     
     <br/>
     <br/>
     
-    <label> Name </label>
+    <div class="marg">
+       <label> Name </label>
+        <br/>
+        <input type="text" data-ng-model="form.name" class="marg"/>
+        <br/> 
+    </div>
+    
+    <div class="marg">
+       <label> Phone </label>
+        <br/>
+        <input type="text" data-ng-model="form.phone"  class="marg"/>
+        <br/> 
+    </div>
+
+    <div class="marg">
+       <label> email </label>
+        <br/>
+        <input type="text" data-ng-model="form.email"  class="marg"/>
+        <br/> 
+    </div>
+    
+    <div class="marg">
+       <label> Content </label>
+        <br/>
+        <textarea rows="6" data-ng-model="form.content" style="width: 100%" class="marg"/>
+        <br/> 
+    </div>
+    
     <br/>
-    <input type="text" ng-model="form.name"/>
+     
+    <button class="marg" data-ng-click="send()">Send</button>
     <br/>
-    <label> Phone </label>
-    <br/>
-    <input type="text" ng-model="form.phone"/>
-    <br/>
-    <label> email </label>
-    <br/>
-    <input type="text" ng-model="form.mail"/>
-    <br/>
-    <label> Contact </label>
-    <br/>
-    <input type="text" ng-model="form.content"/>
-    <br/>
-    <br/>
-    <button ng-click="send()">Send</button>
-    <br/>
+
 </div>
