@@ -13,18 +13,18 @@ namespace DD1.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            SendByEmail("subject", "messageBody","");
+            string retVal = SendByEmail("subject", "messageBody","");
 
-            return new string[] { "value1", "value2" };
+            return retVal; //new string[] { retVal };
         }
 
-        public void SendByEmail(string subject, string messageBody, string recipientsGroup)
+        public string SendByEmail(string subject, string messageBody, string recipientsGroup)
         {
             string addresses = ConfigurationManager.AppSettings[recipientsGroup];
 
-            string errStr = "";
+            string retVal = "good";
 
             try
             {
@@ -61,11 +61,11 @@ namespace DD1.Controllers
                 //}
             catch (Exception ex)
             {
-                errStr = ex.ToString();
+                retVal = ex.ToString();
 
             }
 
-            string ee = errStr + "";
+            return retVal;
         }
     
 
