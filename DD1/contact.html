@@ -18,6 +18,7 @@
 
      input.marg {
          width: 100%;
+         margin-bottom: 10px;
      }
 
      h2.marg {
@@ -29,34 +30,34 @@
  </style>
 
 <div class="ridge" data-ng-contoller="MainCtrl">
-    <h2 class="marg"> Contact Us 052123456 </h2>
+    <h2 class="marg"> צרו קשר  052-3558758 </h2>
     
     <br/>
     <br/>
     
     <div class="marg">
-       <label> Name </label>
+       <label> שם </label>
         <br/>
         <input type="text" data-ng-model="form.name" class="marg"/>
         <br/> 
     </div>
     
     <div class="marg">
-       <label> Phone </label>
+       <label> טלפון </label>
         <br/>
         <input type="text" data-ng-model="form.phone"  class="marg"/>
         <br/> 
     </div>
 
     <div class="marg">
-       <label> email </label>
+       <label> דואר אלקטרוני </label>
         <br/>
         <input type="text" data-ng-model="form.email"  class="marg"/>
         <br/> 
     </div>
     
     <div class="marg">
-       <label> Content </label>
+       <label> תוכן ההודעה </label>
         <br/>
         <textarea rows="6" data-ng-model="form.content" style="width: 100%" class="marg"/>
         <br/> 
@@ -64,7 +65,7 @@
     
     <br/>
      
-    <button class="marg" data-ng-click="send()">Send</button>
+    <button class="marg" data-ng-click="send()">שלח</button>
     <br/>
 
 </div>
