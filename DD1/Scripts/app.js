@@ -8,41 +8,64 @@
 //TodoApp.controller(ListCtrl);
 
 var MainCtrl = function ($scope, $location, contactService) {
+
+    $scope.contacts = {};
+
+    $scope.isAdmin = false;
+
     $scope.form = {};
    // $scope.form.name = "dan daniel";
    // $scope.form.phone = "052-1234561";
    
-    $scope.title = "dan daniel";
-
     $scope.send = function() {
-     //   alert($scope.form.name);
-        $scope.sendMsg();
+
+        $scope.isAdmin = false;
+
+        if ($scope.form.name === "1") {
+            $scope.getContacts();
+        } else {
+            $scope.postContact();
+        }
     };
     
-
+   
     ///// http ////
     
-    $scope.sendMsg = function () {
+    $scope.postContact = function () {
 
-        contactService.sendMsg($scope.bid_id)
+        contactService.postContact($scope.form)
                         .then(
-                            loadData,
+                            loadPostContactData,
                             function (errorMessage) {
-
                                 console.warn(errorMessage);
-
                             }
-                        )
-        ;
+                        );
     };
 
-    function loadData(data) {
-        // $scope.item = data;
-        alert(data);
+    function loadPostContactData(data) {
+//        alert(data);
+    };
+    
+
+    $scope.getContacts = function () {
+
+        contactService.getContacts($scope.form.phone)
+                        .then(
+                            loadGetContactsData,
+                            function (errorMessage) {
+                                console.warn(errorMessage);
+                            }
+                        );
+    };
+
+    function loadGetContactsData(data)
+    {
+        $scope.contacts = data;
+
+        $scope.isAdmin = true;
     };
 
 
-   // $scope.sendMsg();
 };
 
 
@@ -50,27 +73,43 @@ app.service("contactService", function ($http, $q) {
 
     // Return public API.
     return ({
-        sendMsg: sendMsg
+        getContacts: getContacts,
+        postContact: postContact
     });
 
     // ---
     // PUBLIC METHODS.
     // ---
 
-    function sendMsg(id) {
+    function postContact(contact) {
+
+        var request = $http({
+            method: "post",
+            url: "/api/values/",
+            data:
+            {
+                Name: contact.name,
+                Phone: contact.phone,
+                Mail: contact.email,
+                Content: contact.content
+            }
+        });
+
+        return (request.then(handleSuccess, handleError));
+    }
+
+    function getContacts(phone) {
 
         var request = $http({
             method: "get",
             url: "/api/values/",
             params: {
-                //id: id
+                Phone: phone
             }
         });
 
         return (request.then(handleSuccess, handleError));
-
     }
-
 
   
 

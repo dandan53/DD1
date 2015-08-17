@@ -7,17 +7,24 @@ using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
 using System.Web.Http;
+using DD1.Models;
 
 namespace DD1.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public string Get()
+        public List<Contact> Get(string phone)
         {
-            string retVal = SendByEmail("subject", "messageBody","");
+            if (phone != null && phone.Equals("5382"))
+            {
+                return DAL.Instance.GetContacts();                
+            }
 
-            return retVal; //new string[] { retVal };
+            return null;
+
+            //string retVal = SendByEmail("subject", "messageBody","");
+            //return retVal; //new string[] { retVal };
         }
 
         public string SendByEmail(string subject, string messageBody, string recipientsGroup)
@@ -76,8 +83,16 @@ namespace DD1.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post(Contact contact)
         {
+            if (contact != null && contact.Name.Equals("0") && contact.Phone.Equals("5382"))
+            {
+                DAL.Instance.RemoveContacts();
+            }
+            else
+            {
+                DAL.Instance.AddContact(contact);
+            }
         }
 
         // PUT api/values/5

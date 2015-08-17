@@ -4,6 +4,7 @@
     <head>
         
         <style>
+            
             div.ridge {border-style: ridge;}
 
             /* cellpadding  */
@@ -19,13 +20,46 @@
    
         <div data-ng-include="'main_header.html'" style="width:100%; height:100%; padding-right: 40px"/>
 
-        <table style="width:100%; height:100%">
-                    <tr>
-                        <td style="width:68%; height:inherit" data-ng-include="'main_area.html'" />
-                        <td style="width:2%; height:inherit" />
-                        <td style="position:absolute;" data-ng-include="'contact.html'" /> <!-- style="width:30%; height:inherit" -->
-                    </tr>
+        <table style="width:100%; height:100%" data-ng-show="!isAdmin">
+            <tr>
+                <td style="width:68%; height:inherit" data-ng-include="'main_area.html'" />
+                <td style="width:2%; height:inherit" />
+                <td style="position:absolute;" data-ng-include="'contact.html'" /> <!-- style="width:30%; height:inherit" -->
+            </tr>
         </table>
+        
+        <table style="width:100%; height:100%;border: 1px solid black; border-collapse: collapse;" data-ng-show="isAdmin" data-bn-log-dom-creation="Without">
+            <tr style="width:100%; height:100%;border: 1px solid black; border-collapse: collapse;">
+               <th style="border: 1px solid black; border-collapse: collapse;">שם</th>
+               <th style="border: 1px solid black; border-collapse: collapse;">טלפון</th>
+               <th style="border: 1px solid black; border-collapse: collapse;">דואר אלקטרוני</th>
+               <th style="border: 1px solid black; border-collapse: collapse;">תוכן ההודעה</th>
+             </tr>
+            
+            <tr data-ng-repeat="x in contacts" style="width:100%; height:100%;border: 1px solid black; border-collapse: collapse;">
+                <td style="border: 1px solid black; border-collapse: collapse;">{{ x.Name }}</td>
+                <td style="border: 1px solid black; border-collapse: collapse;">{{ x.Phone }}</td>
+                <td style="border: 1px solid black; border-collapse: collapse;">{{ x.Mail }}</td>
+                <td style="border: 1px solid black; border-collapse: collapse;">{{ x.Content }}</td>
+            </tr>
+        </table>
+        
+        <!--
+             <div style="width:100%; height:100%" data-ng-show="isAdmin">
+           <ul>
+                <li
+                    ng-repeat="friend in contacts"
+                    data-bn-log-dom-creation="Without">
+
+                    {{ friend.Name }} &mdash; {{ friend.Phone }}
+
+                </li>
+    </ul>
+        </div>
+
+
+            -->
+
     
     </body>
 
