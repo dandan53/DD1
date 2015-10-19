@@ -14,9 +14,7 @@ var MainCtrl = function ($scope, $location, contactService) {
     $scope.isAdmin = false;
 
     $scope.form = {};
-   // $scope.form.name = "dan daniel";
-   // $scope.form.phone = "052-1234561";
-   
+ 
     $scope.send = function() {
 
         $scope.isAdmin = false;
