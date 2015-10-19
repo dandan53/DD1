@@ -5,7 +5,6 @@
             otherwise({ redirectTo: '/' });
     });
 
-//TodoApp.controller(ListCtrl);
 
 var MainCtrl = function ($scope, $location, contactService) {
 
